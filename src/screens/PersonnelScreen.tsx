@@ -4,24 +4,20 @@ import { ScrollView, View, Text } from 'react-native'
 export default function PersonnelScreen() {
   const personnel = [
     {
-      name: 'Abidin GÖLBAŞI',
-      unit: 'Çim Biçme Ekibi',
-      persNo: '1001'
+      name: 'Ahmet Yılmaz',
+      role: 'Bahçıvan'
     },
     {
-      name: 'Adem EROĞLU',
-      unit: 'Çim Biçme Ekibi',
-      persNo: '1002'
+      name: 'Mehmet Kaya',
+      role: 'Saha Personeli'
     },
     {
-      name: 'Ahmet ŞAHANKAYA',
-      unit: 'Budama Ekibi',
-      persNo: '1004'
+      name: 'Ayşe Demir',
+      role: 'Peyzaj Mimarı'
     },
     {
-      name: 'Mustafa KALEM',
-      unit: 'Depo İşleri',
-      persNo: '1054'
+      name: 'Fatma Çelik',
+      role: 'Teknik Personel'
     }
   ]
 
@@ -39,14 +35,14 @@ export default function PersonnelScreen() {
         style={{
           fontSize: 28,
           fontWeight: 'bold',
-          marginBottom: 20,
-          color: '#111827'
+          color: '#111827',
+          marginBottom: 20
         }}
       >
-        Personel Listesi
+        Personeller
       </Text>
 
-      {personnel.map((person, index) => (
+      {personnel.map((item, index) => (
         <View
           key={index}
           style={{
@@ -54,9 +50,6 @@ export default function PersonnelScreen() {
             padding: 18,
             borderRadius: 14,
             marginBottom: 12,
-            shadowColor: '#000',
-            shadowOpacity: 0.05,
-            shadowRadius: 5,
             elevation: 3
           }}
         >
@@ -67,7 +60,7 @@ export default function PersonnelScreen() {
               color: '#111827'
             }}
           >
-            {person.name}
+            {item.name}
           </Text>
 
           <Text
@@ -76,16 +69,7 @@ export default function PersonnelScreen() {
               color: '#6b7280'
             }}
           >
-            Birim: {person.unit}
-          </Text>
-
-          <Text
-            style={{
-              marginTop: 4,
-              color: '#6b7280'
-            }}
-          >
-            Personel No: {person.persNo}
+            Görev: {item.role}
           </Text>
         </View>
       ))}
