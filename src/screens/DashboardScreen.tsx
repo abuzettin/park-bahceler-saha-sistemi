@@ -1,159 +1,224 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, ScrollView, Alert } from 'react-native'
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  Alert
+} from 'react-native'
 
 export default function DashboardScreen() {
-  const handleNewRequest = () => {
-    Alert.alert(
-      'Bilgi',
-      'Yeni talep oluşturma ekranı yakında eklenecek'
-    )
+  const handleMenuClick = (title: string) => {
+    Alert.alert('Menü', `${title} ekranı yakında eklenecek`)
   }
 
   return (
     <ScrollView
-      style={{ flex: 1, backgroundColor: '#f4f6f8' }}
-      contentContainerStyle={{ padding: 20 }}
+      style={{
+        flex: 1,
+        backgroundColor: '#f3f4f6'
+      }}
+      contentContainerStyle={{
+        padding: 20
+      }}
     >
       <Text
         style={{
           fontSize: 28,
           fontWeight: 'bold',
-          marginBottom: 20,
-          color: '#1f2937'
+          color: '#111827',
+          marginBottom: 5
         }}
       >
-        Park Bahçeler Saha Sistemi
+        Park Bahçeler
       </Text>
 
       <Text
         style={{
           fontSize: 16,
           color: '#6b7280',
-          marginBottom: 20
+          marginBottom: 25
         }}
       >
-        Hoş Geldiniz
+        Saha Yönetim Paneli
       </Text>
 
       <View
         style={{
-          backgroundColor: '#fff',
-          padding: 20,
-          borderRadius: 14,
-          marginBottom: 15,
-          shadowColor: '#000',
-          shadowOpacity: 0.05,
-          shadowRadius: 5,
-          elevation: 3
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          marginBottom: 20
         }}
       >
-        <Text
+        <View
           style={{
-            fontSize: 16,
-            color: '#6b7280'
+            backgroundColor: '#fff',
+            width: '48%',
+            padding: 20,
+            borderRadius: 16,
+            shadowColor: '#000',
+            shadowOpacity: 0.05,
+            shadowRadius: 5,
+            elevation: 4
           }}
         >
-          Aktif İş Emirleri
-        </Text>
+          <Text
+            style={{
+              color: '#6b7280',
+              fontSize: 14
+            }}
+          >
+            Aktif İşler
+          </Text>
 
-        <Text
+          <Text
+            style={{
+              fontSize: 30,
+              fontWeight: 'bold',
+              color: '#2563eb',
+              marginTop: 10
+            }}
+          >
+            12
+          </Text>
+        </View>
+
+        <View
           style={{
-            fontSize: 34,
-            fontWeight: 'bold',
-            color: '#2563eb',
-            marginTop: 10
+            backgroundColor: '#fff',
+            width: '48%',
+            padding: 20,
+            borderRadius: 16,
+            shadowColor: '#000',
+            shadowOpacity: 0.05,
+            shadowRadius: 5,
+            elevation: 4
           }}
         >
-          12
-        </Text>
+          <Text
+            style={{
+              color: '#6b7280',
+              fontSize: 14
+            }}
+          >
+            Tamamlanan
+          </Text>
+
+          <Text
+            style={{
+              fontSize: 30,
+              fontWeight: 'bold',
+              color: '#16a34a',
+              marginTop: 10
+            }}
+          >
+            48
+          </Text>
+        </View>
       </View>
 
       <View
         style={{
           backgroundColor: '#fff',
           padding: 20,
-          borderRadius: 14,
-          marginBottom: 15,
+          borderRadius: 16,
+          marginBottom: 20,
           shadowColor: '#000',
           shadowOpacity: 0.05,
           shadowRadius: 5,
-          elevation: 3
+          elevation: 4
         }}
       >
         <Text
           style={{
-            fontSize: 16,
-            color: '#6b7280'
-          }}
-        >
-          Tamamlanan İşler
-        </Text>
-
-        <Text
-          style={{
-            fontSize: 34,
+            fontSize: 18,
             fontWeight: 'bold',
-            color: '#16a34a',
-            marginTop: 10
+            marginBottom: 15,
+            color: '#111827'
           }}
         >
-          48
+          Hızlı İşlemler
         </Text>
+
+        <TouchableOpacity
+          onPress={() => handleMenuClick('Yeni İş Emri')}
+          style={{
+            backgroundColor: '#2563eb',
+            padding: 16,
+            borderRadius: 12,
+            marginBottom: 12
+          }}
+        >
+          <Text
+            style={{
+              color: '#fff',
+              textAlign: 'center',
+              fontWeight: 'bold'
+            }}
+          >
+            Yeni İş Emri Oluştur
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => handleMenuClick('Personel Listesi')}
+          style={{
+            backgroundColor: '#16a34a',
+            padding: 16,
+            borderRadius: 12,
+            marginBottom: 12
+          }}
+        >
+          <Text
+            style={{
+              color: '#fff',
+              textAlign: 'center',
+              fontWeight: 'bold'
+            }}
+          >
+            Personeller
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => handleMenuClick('Harita')}
+          style={{
+            backgroundColor: '#ea580c',
+            padding: 16,
+            borderRadius: 12,
+            marginBottom: 12
+          }}
+        >
+          <Text
+            style={{
+              color: '#fff',
+              textAlign: 'center',
+              fontWeight: 'bold'
+            }}
+          >
+            Harita
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => handleMenuClick('Raporlar')}
+          style={{
+            backgroundColor: '#7c3aed',
+            padding: 16,
+            borderRadius: 12
+          }}
+        >
+          <Text
+            style={{
+              color: '#fff',
+              textAlign: 'center',
+              fontWeight: 'bold'
+            }}
+          >
+            Raporlar
+          </Text>
+        </TouchableOpacity>
       </View>
-
-      <View
-        style={{
-          backgroundColor: '#fff',
-          padding: 20,
-          borderRadius: 14,
-          marginBottom: 15,
-          shadowColor: '#000',
-          shadowOpacity: 0.05,
-          shadowRadius: 5,
-          elevation: 3
-        }}
-      >
-        <Text
-          style={{
-            fontSize: 16,
-            color: '#6b7280'
-          }}
-        >
-          Bekleyen Talepler
-        </Text>
-
-        <Text
-          style={{
-            fontSize: 34,
-            fontWeight: 'bold',
-            color: '#dc2626',
-            marginTop: 10
-          }}
-        >
-          7
-        </Text>
-      </View>
-
-      <TouchableOpacity
-        onPress={handleNewRequest}
-        style={{
-          backgroundColor: '#2563eb',
-          padding: 18,
-          borderRadius: 14,
-          marginTop: 10
-        }}
-      >
-        <Text
-          style={{
-            color: '#fff',
-            textAlign: 'center',
-            fontSize: 16,
-            fontWeight: 'bold'
-          }}
-        >
-          Yeni Talep Oluştur
-        </Text>
-      </TouchableOpacity>
     </ScrollView>
   )
 }
