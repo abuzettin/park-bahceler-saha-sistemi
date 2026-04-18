@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native'
 import DashboardScreen from './DashboardScreen'
+import { supabase } from '../services/supabase'
 
 export default function LoginScreen() {
   const [persNo, setPersNo] = useState('')
@@ -8,7 +9,14 @@ export default function LoginScreen() {
   const [loggedIn, setLoggedIn] = useState(false)
 
   const handleLogin = async () => {
-    if (persNo === '9999' && password === '123456') {
+    const { data, error } = await supabase
+      .from('users')
+      .select('*')
+      .eq('pers_no', persNo)
+      .eq('password_hash', password)
+      .single()
+
+    if (data) {
       setLoggedIn(true)
     } else {
       Alert.alert('Hata', 'Pers No veya şifre yanlış')
@@ -39,8 +47,8 @@ export default function LoginScreen() {
         style={{
           borderWidth: 1,
           borderColor: '#ccc',
+          padding: 12,
           borderRadius: 10,
-          padding: 14,
           marginBottom: 15,
         }}
       />
@@ -53,8 +61,8 @@ export default function LoginScreen() {
         style={{
           borderWidth: 1,
           borderColor: '#ccc',
+          padding: 12,
           borderRadius: 10,
-          padding: 14,
           marginBottom: 20,
         }}
       />
@@ -63,7 +71,7 @@ export default function LoginScreen() {
         onPress={handleLogin}
         style={{
           backgroundColor: '#2563eb',
-          padding: 16,
+          padding: 15,
           borderRadius: 10,
         }}
       >
