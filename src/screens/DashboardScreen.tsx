@@ -1,24 +1,28 @@
-import React from 'react'
-import { ScrollView, View, Text } from 'react-native'
+import React, { useState } from 'react'
+import { ScrollView, View, Text, TouchableOpacity } from 'react-native'
+import MapScreen from './MapScreen'
+import PersonnelScreen from './PersonnelScreen'
+import ReportScreen from './ReportScreen'
+import WorkOrderScreen from './WorkOrderScreen'
 
-export default function ReportScreen() {
-  const reports = [
-    {
-      title: 'Çim Biçme Çalışması',
-      location: 'Akçakaya Mahallesi',
-      status: 'Tamamlandı'
-    },
-    {
-      title: 'Budama Çalışması',
-      location: 'Bahçelievler Mahallesi',
-      status: 'Devam Ediyor'
-    },
-    {
-      title: 'Sulama Arızası',
-      location: 'Mevlana Mahallesi',
-      status: 'Bekliyor'
-    }
-  ]
+export default function DashboardScreen() {
+  const [activeScreen, setActiveScreen] = useState('dashboard')
+
+  if (activeScreen === 'map') {
+    return <MapScreen />
+  }
+
+  if (activeScreen === 'personnel') {
+    return <PersonnelScreen />
+  }
+
+  if (activeScreen === 'reports') {
+    return <ReportScreen />
+  }
+
+  if (activeScreen === 'workorders') {
+    return <WorkOrderScreen />
+  }
 
   return (
     <ScrollView
@@ -38,58 +42,143 @@ export default function ReportScreen() {
           color: '#111827'
         }}
       >
-        Raporlar
+        Park Bahçeler Yönetim Paneli
       </Text>
 
-      {reports.map((report, index) => (
-        <View
-          key={index}
+      <View
+        style={{
+          backgroundColor: '#fff',
+          padding: 20,
+          borderRadius: 14,
+          marginBottom: 15
+        }}
+      >
+        <Text
           style={{
-            backgroundColor: '#fff',
-            padding: 18,
-            borderRadius: 14,
-            marginBottom: 12,
-            shadowColor: '#000',
-            shadowOpacity: 0.05,
-            shadowRadius: 5,
-            elevation: 3
+            fontSize: 18,
+            fontWeight: 'bold'
           }}
         >
-          <Text
-            style={{
-              fontSize: 18,
-              fontWeight: 'bold',
-              color: '#111827'
-            }}
-          >
-            {report.title}
-          </Text>
+          Aktif Emirler
+        </Text>
 
-          <Text
-            style={{
-              marginTop: 6,
-              color: '#6b7280'
-            }}
-          >
-            Konum: {report.location}
-          </Text>
+        <Text
+          style={{
+            fontSize: 32,
+            color: '#2563eb',
+            marginTop: 10
+          }}
+        >
+          12
+        </Text>
+      </View>
 
-          <Text
-            style={{
-              marginTop: 4,
-              color:
-                report.status === 'Tamamlandı'
-                  ? '#16a34a'
-                  : report.status === 'Devam Ediyor'
-                  ? '#ea580c'
-                  : '#dc2626',
-              fontWeight: 'bold'
-            }}
-          >
-            {report.status}
-          </Text>
-        </View>
-      ))}
+      <View
+        style={{
+          backgroundColor: '#fff',
+          padding: 20,
+          borderRadius: 14,
+          marginBottom: 15
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: 'bold'
+          }}
+        >
+          Tamamlanan İşler
+        </Text>
+
+        <Text
+          style={{
+            fontSize: 32,
+            color: '#16a34a',
+            marginTop: 10
+          }}
+        >
+          48
+        </Text>
+      </View>
+
+      <TouchableOpacity
+        onPress={() => setActiveScreen('map')}
+        style={{
+          backgroundColor: '#2563eb',
+          padding: 16,
+          borderRadius: 12,
+          marginBottom: 10
+        }}
+      >
+        <Text
+          style={{
+            color: '#fff',
+            fontWeight: 'bold',
+            textAlign: 'center'
+          }}
+        >
+          Harita Ekranı
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => setActiveScreen('personnel')}
+        style={{
+          backgroundColor: '#16a34a',
+          padding: 16,
+          borderRadius: 12,
+          marginBottom: 10
+        }}
+      >
+        <Text
+          style={{
+            color: '#fff',
+            fontWeight: 'bold',
+            textAlign: 'center'
+          }}
+        >
+          Personel Listesi
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => setActiveScreen('reports')}
+        style={{
+          backgroundColor: '#ea580c',
+          padding: 16,
+          borderRadius: 12,
+          marginBottom: 10
+        }}
+      >
+        <Text
+          style={{
+            color: '#fff',
+            fontWeight: 'bold',
+            textAlign: 'center'
+          }}
+        >
+          Raporlar
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => setActiveScreen('workorders')}
+        style={{
+          backgroundColor: '#7c3aed',
+          padding: 16,
+          borderRadius: 12
+        }}
+      >
+        <Text
+          style={{
+            color: '#fff',
+            fontWeight: 'bold',
+            textAlign: 'center'
+          }}
+        >
+          İş Emirleri
+        </Text>
+      </TouchableOpacity>
     </ScrollView>
   )
 }
