@@ -6,12 +6,17 @@ import {
   ScrollView
 } from 'react-native'
 import WorkOrderScreen from './WorkOrderScreen'
+import PersonnelScreen from './PersonnelScreen'
 
 export default function DashboardScreen() {
   const [selectedScreen, setSelectedScreen] = useState('dashboard')
 
   if (selectedScreen === 'workorder') {
     return <WorkOrderScreen />
+  }
+
+  if (selectedScreen === 'personnel') {
+    return <PersonnelScreen />
   }
 
   return (
@@ -163,6 +168,7 @@ export default function DashboardScreen() {
         </TouchableOpacity>
 
         <TouchableOpacity
+          onPress={() => setSelectedScreen('personnel')}
           style={{
             backgroundColor: '#16a34a',
             padding: 16,
