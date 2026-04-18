@@ -4,16 +4,20 @@ import { ScrollView, View, Text } from 'react-native'
 export default function MapScreen() {
   const locations = [
     {
-      name: 'AKÇAKAYA MUHTARLIK ÖNÜ PARK',
+      name: 'Akçakaya Muhtarlık Önü Park',
       mahalle: 'Akçakaya'
     },
     {
-      name: 'HARMAN YERİ PARK',
+      name: 'Harman Yeri Park',
       mahalle: 'Akçakaya'
     },
     {
-      name: 'ALİYE İZZET BEGOVİÇ PARKI',
+      name: 'Aliya İzzetbegoviç Parkı',
       mahalle: 'Bahçelievler'
+    },
+    {
+      name: 'Mevlana Parkı',
+      mahalle: 'Mevlana'
     }
   ]
 
@@ -31,8 +35,8 @@ export default function MapScreen() {
         style={{
           fontSize: 28,
           fontWeight: 'bold',
-          marginBottom: 20,
-          color: '#111827'
+          color: '#111827',
+          marginBottom: 20
         }}
       >
         Harita ve Lokasyonlar
@@ -46,9 +50,6 @@ export default function MapScreen() {
             padding: 18,
             borderRadius: 14,
             marginBottom: 12,
-            shadowColor: '#000',
-            shadowOpacity: 0.05,
-            shadowRadius: 5,
             elevation: 3
           }}
         >
