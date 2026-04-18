@@ -2,66 +2,65 @@ import { View, Text, TouchableOpacity } from 'react-native'
 
 export default function DashboardScreen() {
   return (
-    <View style={{ flex: 1, padding: 20, backgroundColor: '#f4f6f9' }}>
+    <View style={{ flex: 1, padding: 20, backgroundColor: '#f3f4f6' }}>
       <Text
         style={{
-          fontSize: 26,
+          fontSize: 28,
           fontWeight: 'bold',
           marginBottom: 20,
         }}
       >
-        Park Bahçeler Yönetim Paneli
+        Hoş Geldiniz
       </Text>
+
+      <View
+        style={{
+          backgroundColor: '#fff',
+          padding: 20,
+          borderRadius: 12,
+          marginBottom: 15,
+        }}
+      >
+        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
+          Aktif İş Emirleri
+        </Text>
+        <Text style={{ fontSize: 30, color: '#2563eb', marginTop: 10 }}>
+          12
+        </Text>
+      </View>
+
+      <View
+        style={{
+          backgroundColor: '#fff',
+          padding: 20,
+          borderRadius: 12,
+          marginBottom: 15,
+        }}
+      >
+        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
+          Tamamlanan İşler
+        </Text>
+        <Text style={{ fontSize: 30, color: '#16a34a', marginTop: 10 }}>
+          48
+        </Text>
+      </View>
 
       <TouchableOpacity
         style={{
           backgroundColor: '#2563eb',
-          padding: 18,
+          padding: 16,
           borderRadius: 12,
-          marginBottom: 12,
+          marginTop: 20,
         }}
       >
-        <Text style={{ color: '#fff', fontWeight: 'bold' }}>
-          İş Emirleri
-        </Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={{
-          backgroundColor: '#16a34a',
-          padding: 18,
-          borderRadius: 12,
-          marginBottom: 12,
-        }}
-      >
-        <Text style={{ color: '#fff', fontWeight: 'bold' }}>
-          Harita
-        </Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={{
-          backgroundColor: '#ea580c',
-          padding: 18,
-          borderRadius: 12,
-          marginBottom: 12,
-        }}
-      >
-        <Text style={{ color: '#fff', fontWeight: 'bold' }}>
-          Personeller
-        </Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={{
-          backgroundColor: '#7c3aed',
-          padding: 18,
-          borderRadius: 12,
-          marginBottom: 12,
-        }}
-      >
-        <Text style={{ color: '#fff', fontWeight: 'bold' }}>
-          Raporlar
+        <Text
+          style={{
+            color: '#fff',
+            textAlign: 'center',
+            fontWeight: 'bold',
+          }}
+        >
+          Yeni İş Emri Oluştur
         </Text>
       </TouchableOpacity>
     </View>
