@@ -1,16 +1,22 @@
 import { useState } from 'react'
 import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native'
+import DashboardScreen from './DashboardScreen'
 
 export default function LoginScreen() {
   const [persNo, setPersNo] = useState('')
   const [password, setPassword] = useState('')
+  const [loggedIn, setLoggedIn] = useState(false)
 
   const handleLogin = async () => {
     if (persNo === '9999' && password === '123456') {
-      Alert.alert('Başarılı', 'Hoş geldiniz Sistem Yöneticisi')
+      setLoggedIn(true)
     } else {
       Alert.alert('Hata', 'Pers No veya şifre yanlış')
     }
+  }
+
+  if (loggedIn) {
+    return <DashboardScreen />
   }
 
   return (
