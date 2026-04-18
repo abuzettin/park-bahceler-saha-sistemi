@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   View,
   Text,
   TouchableOpacity,
-  ScrollView,
-  Alert
+  ScrollView
 } from 'react-native'
+import WorkOrderScreen from './WorkOrderScreen'
 
 export default function DashboardScreen() {
-  const handleMenuClick = (title: string) => {
-    Alert.alert('Menü', `${title} ekranı yakında eklenecek`)
+  const [selectedScreen, setSelectedScreen] = useState('dashboard')
+
+  if (selectedScreen === 'workorder') {
+    return <WorkOrderScreen />
   }
 
   return (
@@ -141,7 +143,7 @@ export default function DashboardScreen() {
         </Text>
 
         <TouchableOpacity
-          onPress={() => handleMenuClick('Yeni İş Emri')}
+          onPress={() => setSelectedScreen('workorder')}
           style={{
             backgroundColor: '#2563eb',
             padding: 16,
@@ -161,7 +163,6 @@ export default function DashboardScreen() {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => handleMenuClick('Personel Listesi')}
           style={{
             backgroundColor: '#16a34a',
             padding: 16,
@@ -181,7 +182,6 @@ export default function DashboardScreen() {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => handleMenuClick('Harita')}
           style={{
             backgroundColor: '#ea580c',
             padding: 16,
@@ -201,7 +201,6 @@ export default function DashboardScreen() {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => handleMenuClick('Raporlar')}
           style={{
             backgroundColor: '#7c3aed',
             padding: 16,
