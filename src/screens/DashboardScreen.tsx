@@ -7,6 +7,7 @@ import {
 } from 'react-native'
 import WorkOrderScreen from './WorkOrderScreen'
 import PersonnelScreen from './PersonnelScreen'
+import MapScreen from './MapScreen'
 
 export default function DashboardScreen() {
   const [selectedScreen, setSelectedScreen] = useState('dashboard')
@@ -17,6 +18,10 @@ export default function DashboardScreen() {
 
   if (selectedScreen === 'personnel') {
     return <PersonnelScreen />
+  }
+
+  if (selectedScreen === 'map') {
+    return <MapScreen />
   }
 
   return (
@@ -188,6 +193,7 @@ export default function DashboardScreen() {
         </TouchableOpacity>
 
         <TouchableOpacity
+          onPress={() => setSelectedScreen('map')}
           style={{
             backgroundColor: '#ea580c',
             padding: 16,
